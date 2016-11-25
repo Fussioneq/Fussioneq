@@ -1,0 +1,5 @@
+(configuration-migration siberia_150
+  (migration-schema 1
+    (dts_hpx_surround:! settings { state: 0 mode: 1 })
+  )
+)

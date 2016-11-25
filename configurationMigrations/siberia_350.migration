@@ -1,0 +1,9 @@
+(configuration-migration siberia_350
+  (migration-schema 1
+    (let* ((on_off (state: (dts_hpx_surround_on_off: settings)))
+           (mode (mode: (dts_hpx_surround_mode: settings))))
+      (dts_hpx_surround:! settings { state: on_off mode: (+ 1 (% mode 3)) }))
+    (remove-slot! settings dts_hpx_surround_on_off:)
+    (remove-slot! settings dts_hpx_surround_mode:)
+  )
+)

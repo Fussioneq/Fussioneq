@@ -1,0 +1,11 @@
+(configuration-migration rival_95_pc_bang
+        (migration-schema 1
+                ;; replacing default binding for button 6 to be button 4
+                (let* ((button_mappings (button_mappings: settings))
+                       (buttons (buttons: button_mappings)))
+                        (buttons:! button_mappings (append
+                        		(take 5 buttons)
+                                {function: 4 key_codes: [0 0 0 0]}
+                                )))
+        )
+)

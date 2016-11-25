@@ -1,0 +1,11 @@
+(configuration-migration apex
+        (migration-schema 1
+                ;; Add UpLeft/UpRight arrow key bindings
+                (let* ((button_mappings (button_mappings: settings))
+                       (buttons (buttons: button_mappings)))
+                        (buttons:! button_mappings (append
+                                (take 109 buttons)
+                                (map (lambda (key) {function: 0 key_codes: (list key)}) '(172 173))
+                                (drop 109 buttons))))
+        )
+)

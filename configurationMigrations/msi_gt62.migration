@@ -1,0 +1,10 @@
+(configuration-migration msi_gt62
+        (migration-schema 1
+                ;; Add missng ss-key binding
+                (let* ((button_mappings (button_mappings: settings))
+                       (buttons (buttons: button_mappings)))
+                        (buttons:! button_mappings (append
+                                {function: 999 key_codes: '(240)}
+                                buttons)))
+        )
+)

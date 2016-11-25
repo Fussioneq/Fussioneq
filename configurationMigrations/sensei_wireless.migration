@@ -1,0 +1,16 @@
+(configuration-migration sensei_wireless
+        (migration-schema 1
+                ;; change base color if in battery mode to avoid save button activating in frontend
+                (let
+                        (
+                                (base_mode (mode: (base_pulsation: settings)))
+                                (base_color (base_color: settings))
+                        )
+                        (when (== base_mode 6)
+                                (red:! base_color 0)
+                                (green:! base_color 0)
+                                (blue:! base_color 0)
+                        )
+                )
+        )
+)
